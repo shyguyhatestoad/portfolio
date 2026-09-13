@@ -409,3 +409,73 @@ html {
         font-size: 1.5rem;
     }
 }
+
+/* --- SKILLS SECTION STYLES --- */
+.skills-section {
+    background-color: #0a0a0c;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.skills-container {
+    width: 90%;
+    max-width: 1300px;
+    text-align: left;
+}
+
+.skills-main-title {
+    font-size: clamp(3rem, 10vw, 6rem); /* Huge bold title */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -3px;
+    transition: var(--transition-smooth);
+}
+
+/* Red Glow on the word Programming when hovering the section */
+.skills-section:hover .skills-main-title {
+    color: var(--hover-red);
+    text-shadow: 0 0 30px rgba(255, 77, 77, 0.4);
+}
+
+.skills-description {
+    font-size: 1.5rem;
+    color: #ffffff;
+    max-width: 800px;
+    line-height: 1.4;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+/* --- SKILL TAGS --- */
+.skills-tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-tag {
+    background: #16161a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    transition: var(--transition-smooth);
+}
+
+.skill-tag:hover {
+    border-color: var(--hover-red);
+    color: #ffffff;
+    transform: translateY(-5px);
+    background: rgba(255, 77, 77, 0.05);
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .skills-main-title { font-size: 3.5rem; letter-spacing: -1px; }
+    .skills-description { font-size: 1.1rem; }
+}
