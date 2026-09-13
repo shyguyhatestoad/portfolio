@@ -5,7 +5,15 @@
     --hover-red: #ff4d4d;
     --text-white: #ffffff;
     --text-gray: #a1a1aa;
-    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Professional easing */
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,7 +25,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- NAV BAR --- */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -41,7 +49,6 @@ nav {
     align-items: center;
 }
 
-/* --- LOGO --- */
 .logo {
     display: flex;
     align-items: center;
@@ -49,16 +56,15 @@ nav {
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
-    text-transform: lowercase; /* Ensures lowercase */
+    text-transform: lowercase;
 }
 
 .logo-img {
     height: 35px;
     width: auto;
-    border-radius: 4px; /* Slight roundness for the logo */
+    border-radius: 4px;
 }
 
-/* --- NAV LINKS --- */
 .nav-links {
     display: flex;
     list-style: none;
@@ -75,16 +81,14 @@ nav {
     transition: var(--transition-smooth);
 }
 
-/* --- THE RED GLOW EFFECT --- */
 .nav-links a:hover {
     color: var(--hover-red);
     text-shadow: 0 0 15px rgba(255, 77, 77, 0.6), 0 0 30px rgba(255, 77, 77, 0.2);
 }
 
-/* --- DISCORD BUTTON & HOVER --- */
 .btn-discord {
     background: var(--accent-blue);
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 10px 24px;
     border-radius: 50px;
@@ -103,53 +107,44 @@ nav {
 }
 
 .btn-discord:hover {
-    transform: translateY(-4px) scale(1.05); /* Lifts up and gets slightly bigger */
+    transform: translateY(-4px) scale(1.05);
     background: #4752c4; 
-    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5); /* Stronger glow on hover */
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5);
     border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-discord:active {
-    transform: translateY(-2px) scale(0.98); /* Pushes down when clicked */
+    transform: translateY(-2px) scale(0.98);
 }
 
-/* SMOOTH SCROLLING */
-html {
-    scroll-behavior: smooth;
-}
-
-/* --- HERO BANNER STYLES --- */
+/* Hero Section */
 .hero-banner {
     position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centers the container horizontally */
-    
-    /* FIX: Added fallback color and ensured path is correct */
+    justify-content: center;
     background-color: #0a0a0c; 
     background-image: linear-gradient(to right, rgba(10, 10, 12, 0.9) 30%, rgba(10, 10, 12, 0.2)), url('./banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Optional: adds a cool parallax effect */
-    
+    background-attachment: fixed;
     overflow: hidden;
 }
 
 .hero-container {
     width: 90%;
-    max-width: 1300px; /* Matches your Nav Bar width */
-    margin-top: 80px; /* Accounts for navbar height */
+    max-width: 1300px;
+    margin-top: 80px;
 }
 
 .hero-content {
-    max-width: 850px; /* Keeps text from stretching too far right */
+    max-width: 850px;
     text-align: left;
 }
 
-/* --- BADGE & ICONS --- */
 .hero-top-meta {
     display: flex;
     align-items: center;
@@ -158,7 +153,7 @@ html {
 }
 
 .status-badge {
-    background: #1e1e22; /* Dark grey rounded background */
+    background: #1e1e22;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 6px 16px;
     border-radius: 50px;
@@ -186,7 +181,8 @@ html {
 .dot::after {
     content: '';
     position: absolute;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background: #22c55e;
     border-radius: 50%;
     animation: pulse-dot 2s infinite;
@@ -206,16 +202,15 @@ html {
 .engine-icons img {
     height: 20px;
     width: auto;
-    filter: brightness(0) invert(1); /* Keeps them white */
+    filter: brightness(0) invert(1);
     opacity: 0.8;
 }
 
-/* --- TEXT CONTENT --- */
 .hero-title {
     font-size: clamp(2.5rem, 8vw, 5.2rem);
     font-weight: 800;
     color: #ffffff;
-    line-height: 0.95; /* Tighter overlap look */
+    line-height: 0.95;
     margin-bottom: 30px;
     letter-spacing: -3px;
 }
@@ -229,7 +224,6 @@ html {
     font-weight: 400;
 }
 
-/* --- BUTTONS --- */
 .hero-btns {
     display: flex;
     gap: 20px;
@@ -272,14 +266,7 @@ html {
     transform: translateY(-5px);
 }
 
-/* Fix for mobile screens */
-@media (max-width: 768px) {
-    .hero-title { font-size: 3.2rem; letter-spacing: -1px; }
-    .hero-btns { flex-direction: column; }
-    .hero-top-meta { flex-wrap: wrap; }
-}
-
-/* --- WORK SECTION STYLES --- */
+/* Portfolio Work Section */
 .work-section {
     background-color: #0a0a0c;
     padding: 100px 0;
@@ -300,11 +287,11 @@ html {
     letter-spacing: -1px;
 }
 
-/* --- THE RECTANGLE CARD --- */
 .work-card {
+    position: relative;
     display: flex;
-    background: #16161a; /* Dark rectangle background */
-    border: 2px solid transparent; /* Hidden by default */
+    background: #16161a;
+    border: 2px solid transparent;
     border-radius: 24px;
     padding: 30px;
     margin-bottom: 30px;
@@ -314,27 +301,21 @@ html {
     cursor: pointer;
 }
 
-/* --- RED GLOW HOVER --- */
 .work-card:hover {
     border: 2px solid var(--hover-red);
     box-shadow: 0 0 30px rgba(255, 77, 77, 0.2);
     transform: translateY(-5px);
 }
 
-/* --- ENGINE ICON IN CARD --- */
-.work-card {
-    position: relative; /* Allows icon to be pinned to top-right */
-}
-
 .card-engine-icon {
     position: absolute;
     top: 25px;
     right: 30px;
-    height: 18px; /* Text-sized as requested */
+    height: 18px;
     width: auto;
-    filter: brightness(0) invert(1); /* Makes the icon white */
+    filter: brightness(0) invert(1);
     opacity: 0.6;
-    pointer-events: none; /* User can click through the icon */
+    pointer-events: none;
     transition: var(--transition-smooth);
 }
 
@@ -343,22 +324,17 @@ html {
     transform: scale(1.1);
 }
 
-/* Make sure the text doesn't hit the icon on smaller screens */
-@media (max-width: 992px) {
-    .card-engine-icon {
-        top: 15px;
-        right: 15px;
-    }
-}
-
-/* --- VIDEO SIDE --- */
 .work-video {
-    flex: 1.2; /* Takes up a bit more room */
+    flex: 1.2;
     aspect-ratio: 16/9;
     background: #000;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.work-video iframe {
+    border: 0;
 }
 
 .video-placeholder {
@@ -377,9 +353,8 @@ html {
     opacity: 0.3;
 }
 
-/* --- INFO SIDE --- */
 .work-info {
-    flex: 1; /* Takes up remaining room */
+    flex: 1;
 }
 
 .work-info h3 {
@@ -396,21 +371,7 @@ html {
     opacity: 0.8;
 }
 
-/* Responsive Fix for Phones */
-@media (max-width: 992px) {
-    .work-card {
-        flex-direction: column;
-        padding: 20px;
-    }
-    .work-video {
-        width: 100%;
-    }
-    .work-info h3 {
-        font-size: 1.5rem;
-    }
-}
-
-/* --- PAYMENT SECTION STYLES --- */
+/* Payment Section */
 .payment-section {
     background-color: #0a0a0c;
     padding: 100px 0;
@@ -455,7 +416,89 @@ html {
     opacity: 0.8;
 }
 
-/* --- FOOTER CTA STYLES --- */
+/* About Section */
+.about-section {
+    background-color: #0a0a0c;
+    padding: 120px 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.about-logo {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.05));
+}
+
+.about-right {
+    flex: 1;
+}
+
+.about-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--text-white);
+    margin-bottom: 10px;
+}
+
+.about-subtitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+}
+
+.about-tags {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.about-tag {
+    background: #1e1e22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: var(--transition-smooth);
+}
+
+.tag-glow:hover {
+    border-color: var(--hover-red);
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+    transform: translateY(-2px);
+}
+
+.about-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+.languages-row {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.languages-row span {
+    color: var(--text-gray);
+    margin-left: 10px;
+}
+
+/* Footer Section */
 .footer-cta {
     background-color: #0a0a0c;
     padding: 100px 0 40px 0;
@@ -483,7 +526,7 @@ html {
 }
 
 .footer-btn {
-    display: inline-block; /* Makes it act like a button */
+    display: inline-block;
 }
 
 .footer-bottom {
@@ -499,112 +542,64 @@ html {
     opacity: 0.5;
 }
 
-/* Mobile Fix */
-@media (max-width: 768px) {
-    .payment-content p { font-size: 1.2rem; }
-    .cta-text h3 { font-size: 1.8rem; }
-}
-
-/* --- ABOUT SECTION STYLES --- */
-.about-section {
-    background-color: #0a0a0c;
-    padding: 120px 0;
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.about-container {
-    width: 90%;
-    max-width: 1100px;
-    display: flex;
-    align-items: center;
-    gap: 80px;
-}
-
-/* Left Side Logo */
-.about-logo {
-    width: 300px;
-    height: auto;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.05));
-}
-
-/* Right Side Content */
-.about-right {
-    flex: 1;
-}
-
-.about-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 4px;
-    color: var(--text-white);
-    margin-bottom: 10px;
-}
-
-.about-subtitle {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 25px;
-    letter-spacing: -2px;
-}
-
-/* Tags Styles */
-.about-tags {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.about-tag {
-    background: #1e1e22;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #ffffff;
-    transition: var(--transition-smooth);
-}
-
-.tag-glow:hover {
-    border-color: var(--hover-red);
-    box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
-    transform: translateY(-2px);
-}
-
-/* Description Text */
-.about-text {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--text-gray);
-    margin-bottom: 30px;
-}
-
-.languages-row {
-    font-size: 1rem;
-    color: #ffffff;
-}
-
-.languages-row span {
-    color: var(--text-gray);
-    margin-left: 10px;
-}
-
-/* Mobile Responsive Fix */
+/* Responsive Queries */
 @media (max-width: 992px) {
+    .card-engine-icon {
+        top: 15px;
+        right: 15px;
+    }
+
+    .work-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .work-video {
+        width: 100%;
+    }
+
+    .work-info h3 {
+        font-size: 1.5rem;
+    }
+
     .about-container {
         flex-direction: column;
         text-align: center;
         gap: 40px;
     }
+
     .about-logo {
         width: 200px;
     }
+
     .about-tags {
         justify-content: center;
     }
+
     .about-subtitle {
         font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title { 
+        font-size: 3.2rem; 
+        letter-spacing: -1px; 
+    }
+
+    .hero-btns { 
+        flex-direction: column; 
+    }
+
+    .hero-top-meta { 
+        flex-wrap: wrap; 
+    }
+
+    .payment-content p { 
+        font-size: 1.2rem; 
+    }
+
+    .cta-text h3 { 
+        font-size: 1.8rem; 
     }
 }
