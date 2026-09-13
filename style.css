@@ -410,17 +410,99 @@ html {
     }
 }
 
-/* --- PAYMENT SECTION (BASIC) --- */
+/* --- PAYMENT SECTION STYLES --- */
 .payment-section {
+    background-color: #0a0a0c;
     padding: 100px 0;
-    text-align: center;
-    background: #0a0a0c;
+    display: flex;
+    justify-content: center;
 }
 
-.section-header {
+.payment-container {
+    width: 90%;
+    max-width: 1100px;
+}
+
+.payment-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.payment-content p {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #ffffff;
+    max-width: 900px;
+    margin-bottom: 20px;
+}
+
+.payment-content strong {
+    color: var(--accent-blue);
+}
+
+.payment-notice {
+    margin-top: 40px;
+    padding-left: 20px;
+    border-left: 3px solid var(--hover-red);
+}
+
+.payment-notice p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    opacity: 0.8;
+}
+
+/* --- FOOTER CTA STYLES --- */
+.footer-cta {
+    background-color: #0a0a0c;
+    padding: 100px 0 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cta-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.cta-text h3 {
     font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.cta-text p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+.footer-btn {
+    display: inline-block; /* Makes it act like a button */
+}
+
+.footer-bottom {
+    margin-top: 100px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 40px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    opacity: 0.5;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .payment-content p { font-size: 1.2rem; }
+    .cta-text h3 { font-size: 1.8rem; }
 }
 
 /* --- ABOUT SECTION STYLES --- */
