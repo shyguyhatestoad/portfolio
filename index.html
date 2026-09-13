@@ -3,45 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourName | Scripter Portfolio</title>
+    <title>ShyGuy | Roblox Systems Scripter</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font for a coding vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <div class="logo">Scripter.IO</div>
-        <ul>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="YOUR_DISCORD_LINK">Discord</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="logo"><span>V</span> VitalyWorks</div> <!-- Change this to your name -->
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#what-i-do">What I do</a></li>
+                <li><a href="#payment">Payment</a></li>
+            </ul>
+            <a href="YOUR_DISCORD_LINK" class="btn-discord">Message on Discord</a>
+        </div>
     </nav>
 
-    <header>
-        <h1>Hi, I'm <span class="highlight">YourName</span>.</h1>
-        <p>Advanced Scripter specializing in [Language, e.g., Luau / Python / JS].</p>
-        <a href="#projects" class="btn">View My Work</a>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="status-badge">
+                <span class="dot"></span> Open for commissions
+            </div>
+            
+            <h1>I make <span class="gradient-text">Roblox Studio systems</span> for any task and any complexity</h1>
+            
+            <p>I take commissions for game systems in Roblox Studio (Luau), from small jobs to complex systems. I pay close attention to code quality so every system runs reliably. Over three years of experience.</p>
+
+            <div class="hero-btns">
+                <a href="#work" class="btn-primary">View work</a>
+                <a href="#contact" class="btn-secondary">Start a project</a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>3 years</h4>
+                    <p>In Roblox Studio</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Simulators</h4>
+                    <p>Main specialization</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Luau</h4>
+                    <p>Modular server-side code</p>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section id="projects">
-        <h2>Past Work</h2>
-        <div class="project-grid">
-            <!-- Project Card 1 -->
-            <div class="card">
-                <h3>Admin System</h3>
-                <p>A custom backend admin suite with datastore integration.</p>
-                <code>-- Preview: function checkAdmin(plr)...</code>
-                <a href="LINK_TO_GITHUB_OR_VIDEO" class="link">View Source</a>
+    <section id="work" class="work-section">
+        <div class="container">
+            <span class="section-tag">WORK</span>
+            <h2>Built end to end. See every system in action</h2>
+            <p>Eight systems shown in action. Click a card to watch the video.</p>
+            
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-thumb"></div>
+                    <div class="project-info">
+                        <h3>Inventory System</h3>
+                        <p>Advanced data saving and UI integration.</p>
+                    </div>
+                </div>
+                <!-- Add more project cards here -->
             </div>
-            <!-- Add more cards as needed -->
         </div>
     </section>
-
-    <footer>
-        <p>Find me on Discord: <strong>User#0000</strong></p>
-    </footer>
 
 </body>
 </html>
