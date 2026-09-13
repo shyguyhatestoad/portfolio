@@ -1,229 +1,112 @@
 :root {
-    --bg-dark: #0a0a0c;
-    --card-glass: rgba(255, 255, 255, 0.05);
+    --bg-color: #0a0a0c;
+    --nav-bg: rgba(10, 10, 12, 0.9);
     --accent-blue: #5865F2; /* Discord Blue */
-    --text-main: #ffffff;
-    --text-dim: #a1a1aa;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --hover-red: #ff4d4d;
+    --text-white: #ffffff;
+    --text-gray: #a1a1aa;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
     font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
+    color: var(--text-white);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* --- NAVIGATION --- */
+/* --- NAV BAR --- */
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px); /* Blurred background effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
-    background: rgba(10, 10, 12, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
 }
 
+/* --- LOGO --- */
 .logo {
-    font-weight: 800;
-    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.logo span {
-    background: var(--accent-blue);
-    padding: 2px 8px;
-    border-radius: 6px;
+.logo-img {
+    height: 35px; /* Adjust based on your logo size */
+    width: auto;
 }
 
+/* --- NAV LINKS --- */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    transition: 0.3s;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    position: relative;
 }
 
-.nav-links a:hover { color: white; }
+/* --- THE RED GLOW EFFECT --- */
+.nav-links a:hover {
+    color: var(--hover-red);
+    text-shadow: 0 0 15px rgba(255, 77, 77, 0.6), 0 0 30px rgba(255, 77, 77, 0.2);
+}
 
+/* --- DISCORD BUTTON --- */
 .btn-discord {
     background: var(--accent-blue);
     color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
     text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
-}
-
-/* --- HERO SECTION --- */
-.hero {
-    position: relative;
-    height: 100vh;
-    min-height: 700px;
     display: flex;
-    align-items: center;
-    padding: 0 10%;
-    /* REPLACE THIS IMAGE LINK WITH YOUR ROBLOX SCREENSHOT */
-    background-image: url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070');
-    background-size: cover;
-    background-position: center;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, #0a0a0c 30%, rgba(10, 10, 12, 0.6));
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-}
-
-.status-badge {
-    display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    margin-bottom: 20px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
 }
 
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #22c55e;
+.btn-discord i {
+    font-size: 1.2rem;
 }
 
-h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
+.btn-discord:hover {
+    transform: translateY(-3px);
+    background: #4752c4; /* Slightly darker discord blue */
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
 }
 
-.gradient-text {
-    background: linear-gradient(90deg, #818cf8, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: underline;
-}
-
-.hero-btns {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.btn-primary {
-    background: #5865F2;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-/* --- STATS GRID --- */
-.stats-grid {
-    display: flex;
-    gap: 15px;
-    margin-top: 50px;
-}
-
-.stat-card {
-    background: var(--card-glass);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px 25px;
-    border-radius: 12px;
-    backdrop-filter: blur(5px);
-    flex: 1;
-}
-
-.stat-card h4 { font-size: 1.1rem; }
-.stat-card p { font-size: 0.8rem; color: var(--text-dim); }
-
-/* --- WORK SECTION --- */
-.work-section {
-    padding: 100px 10%;
-}
-
-.section-tag {
-    background: rgba(56, 189, 248, 0.1);
-    color: #38bdf8;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 800;
-}
-
-h2 { font-size: 2.5rem; margin: 15px 0; }
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.project-card {
-    background: var(--card-glass);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-blue);
-}
-
-.project-thumb {
-    height: 200px;
-    background: #1e1e22;
-}
-
-.project-info {
-    padding: 20px;
+/* SMOOTH SCROLLING FOR LATER */
+html {
+    scroll-behavior: smooth;
 }
