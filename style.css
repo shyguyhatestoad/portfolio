@@ -321,6 +321,36 @@ html {
     transform: translateY(-5px);
 }
 
+/* --- ENGINE ICON IN CARD --- */
+.work-card {
+    position: relative; /* Allows icon to be pinned to top-right */
+}
+
+.card-engine-icon {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    height: 18px; /* Text-sized as requested */
+    width: auto;
+    filter: brightness(0) invert(1); /* Makes the icon white */
+    opacity: 0.6;
+    pointer-events: none; /* User can click through the icon */
+    transition: var(--transition-smooth);
+}
+
+.work-card:hover .card-engine-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Make sure the text doesn't hit the icon on smaller screens */
+@media (max-width: 992px) {
+    .card-engine-icon {
+        top: 15px;
+        right: 15px;
+    }
+}
+
 /* --- VIDEO SIDE --- */
 .work-video {
     flex: 1.2; /* Takes up a bit more room */
