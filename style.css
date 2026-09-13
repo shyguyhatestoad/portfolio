@@ -1,11 +1,11 @@
 :root {
     --bg-color: #0a0a0c;
     --nav-bg: rgba(10, 10, 12, 0.9);
-    --accent-blue: #5865F2; /* Discord Blue */
+    --accent-blue: #5865F2; 
     --hover-red: #ff4d4d;
     --text-white: #ffffff;
     --text-gray: #a1a1aa;
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Professional easing */
 }
 
 body {
@@ -27,7 +27,7 @@ nav {
     display: flex;
     align-items: center;
     background: var(--nav-bg);
-    backdrop-filter: blur(12px); /* Blurred background effect */
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
 }
@@ -47,13 +47,15 @@ nav {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
+    text-transform: lowercase; /* Ensures lowercase */
 }
 
 .logo-img {
-    height: 35px; /* Adjust based on your logo size */
+    height: 35px;
     width: auto;
+    border-radius: 4px; /* Slight roundness for the logo */
 }
 
 /* --- NAV LINKS --- */
@@ -71,7 +73,6 @@ nav {
     font-size: 0.95rem;
     font-weight: 500;
     transition: var(--transition-smooth);
-    position: relative;
 }
 
 /* --- THE RED GLOW EFFECT --- */
@@ -80,7 +81,7 @@ nav {
     text-shadow: 0 0 15px rgba(255, 77, 77, 0.6), 0 0 30px rgba(255, 77, 77, 0.2);
 }
 
-/* --- DISCORD BUTTON --- */
+/* --- DISCORD BUTTON & HOVER --- */
 .btn-discord {
     background: var(--accent-blue);
     color: white;
@@ -94,6 +95,7 @@ nav {
     gap: 8px;
     transition: var(--transition-smooth);
     box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-discord i {
@@ -101,12 +103,17 @@ nav {
 }
 
 .btn-discord:hover {
-    transform: translateY(-3px);
-    background: #4752c4; /* Slightly darker discord blue */
-    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+    transform: translateY(-4px) scale(1.05); /* Lifts up and gets slightly bigger */
+    background: #4752c4; 
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5); /* Stronger glow on hover */
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* SMOOTH SCROLLING FOR LATER */
+.btn-discord:active {
+    transform: translateY(-2px) scale(0.98); /* Pushes down when clicked */
+}
+
+/* SMOOTH SCROLLING */
 html {
     scroll-behavior: smooth;
 }
