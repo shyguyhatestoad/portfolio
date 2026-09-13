@@ -5,7 +5,7 @@
     --hover-red: #ff4d4d;
     --text-white: #ffffff;
     --text-gray: #a1a1aa;
-    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Professional easing */
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- FIXED NAV BAR --- */
+/* --- NAV BAR --- */
 nav {
     position: fixed;
     top: 0;
@@ -41,23 +41,27 @@ nav {
     align-items: center;
 }
 
+/* --- LOGO --- */
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
     font-weight: 700;
     font-size: 1.1rem;
-    text-transform: lowercase;
+    cursor: pointer;
+    text-transform: lowercase; /* Ensures lowercase */
 }
 
 .logo-img {
-    height: 35px; /* Constrains the Shy Guy image size */
+    height: 35px;
     width: auto;
+    border-radius: 4px; /* Slight roundness for the logo */
 }
 
+/* --- NAV LINKS --- */
 .nav-links {
-    display: flex; /* Makes the list horizontal */
-    list-style: none; /* Removes bullet points */
+    display: flex;
+    list-style: none;
     gap: 40px;
     margin: 0;
     padding: 0;
@@ -67,14 +71,17 @@ nav {
     text-decoration: none;
     color: var(--text-gray);
     font-size: 0.95rem;
+    font-weight: 500;
     transition: var(--transition-smooth);
 }
 
+/* --- THE RED GLOW EFFECT --- */
 .nav-links a:hover {
     color: var(--hover-red);
-    text-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+    text-shadow: 0 0 15px rgba(255, 77, 77, 0.6), 0 0 30px rgba(255, 77, 77, 0.2);
 }
 
+/* --- DISCORD BUTTON & HOVER --- */
 .btn-discord {
     background: var(--accent-blue);
     color: white;
@@ -82,146 +89,31 @@ nav {
     padding: 10px 24px;
     border-radius: 50px;
     font-weight: 600;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 8px;
     transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-discord i {
+    font-size: 1.2rem;
 }
 
 .btn-discord:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+    transform: translateY(-4px) scale(1.05); /* Lifts up and gets slightly bigger */
+    background: #4752c4; 
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5); /* Stronger glow on hover */
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* --- HERO SECTION --- */
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-    background: linear-gradient(to right, rgba(10, 10, 12, 0.95), rgba(10, 10, 12, 0.6)), url('banner.png');
-    background-size: cover;
-    background-position: center;
+.btn-discord:active {
+    transform: translateY(-2px) scale(0.98); /* Pushes down when clicked */
 }
 
-.hero-container {
-    max-width: 1000px;
-    margin-top: 80px;
-}
-
-.hero-badge-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.status-badge {
-    width: fit-content; /* Prevents badge from stretching full width */
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    color: #ffffff; /* Explicitly White Text */
-}
-
-.dot {
-    width: 7px;
-    height: 7px;
-    background: #22c55e;
-    border-radius: 50%;
-    position: relative;
-    box-shadow: 0 0 8px #22c55e;
-}
-
-.dot::after {
-    content: '';
-    position: absolute;
-    width: 100%; height: 100%;
-    background: #22c55e;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(3.5); opacity: 0; }
-}
-
-.engine-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.engine-icons img {
-    height: 20px; /* Small icons as requested */
-    width: auto;
-    opacity: 0.8;
-}
-
-/* --- HERO TYPOGRAPHY --- */
-.hero h1 {
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    color: #ffffff; /* Explicitly White Text */
-    margin-bottom: 30px;
-    letter-spacing: -2px;
-}
-
-.hero-description {
-    font-size: 1.05rem;
-    color: #ffffff; /* Explicitly White Text */
-    max-width: 600px;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    opacity: 0.9;
-}
-
-/* --- HERO BUTTONS --- */
-.hero-btns {
-    display: flex;
-    gap: 15px;
-}
-
-.btn-hire {
-    background: var(--hover-red); /* Normal Red */
-    color: #ffffff;
-    text-decoration: none;
-    padding: 16px 35px;
-    border-radius: 10px;
-    font-weight: 700;
-    transition: var(--transition-smooth);
-    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.2);
-}
-
-.btn-hire:hover {
-    transform: translateY(-4px) scale(1.05); /* Same physics as discord */
-    background: #ff3333;
-    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.4);
-}
-
-.btn-work {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    text-decoration: none;
-    padding: 16px 35px;
-    border-radius: 10px;
-    font-weight: 700;
-    transition: var(--transition-smooth);
-}
-
-.btn-work:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-4px);
-}
-
+/* SMOOTH SCROLLING */
 html {
     scroll-behavior: smooth;
 }
